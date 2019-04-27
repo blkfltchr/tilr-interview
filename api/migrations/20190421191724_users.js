@@ -3,7 +3,7 @@ exports.up = function (knex) {
     table
       .increments('user_id')
     table
-      .string('name')
+      .string('email')
       .unique()
       .notNullable()
     table
