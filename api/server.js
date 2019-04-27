@@ -22,7 +22,13 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(routes)
+// Routes
+
+const questionRoutes = require("./routes/questionRoutes");
+const userRoutes = require("./routes/userRoutes");
+
+app.use("/questions", questionRoutes);
+app.use("/users", userRoutes);
 
 const server = app.listen(8000, () => {
   console.log('Server running on 8000!')
