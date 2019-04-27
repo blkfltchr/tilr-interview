@@ -7,15 +7,16 @@ import './style.css'
 const Questions = () => (
   <div className='questions'>
     <div className='questions__sticky'>
-      <h1 className='text-center'>Questions</h1>
+      <h1 className='text-center'>tilr Interview</h1>
       <ul className='nav nav-pills questions__nav'>
-        <li className='nav-item'><NavLink to='/' className='nav-link' exact>Home</NavLink></li>
-        <li className='nav-item'><NavLink to='/create' className='nav-link'>Create</NavLink></li>
+        <li className='nav-item'><NavLink to='/questions' className='nav-link' exact>Questions</NavLink></li>
+        <li className='nav-item'><NavLink to='/questions/create' className='nav-link'>Create</NavLink></li>
+        <li className='nav-item'><NavLink to='/signup' className='nav-link'>Sign up</NavLink></li>
       </ul>
     </div>
     <Switch>
-      <Route path='/' component={QuestionList} exact />
-      <Route path='/create' component={QuestionForm} />
+      <Route path='/questions' component={QuestionList} exact />
+      <Route path='/questions/create' component={QuestionForm} />
     </Switch>
   </div>
 )

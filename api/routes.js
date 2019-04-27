@@ -22,4 +22,24 @@ router.post('/questions', async (req, res) => {
   }
 })
 
+router.get('/users', async (req, res) => {
+  try {
+    const users = await knex.select().table('users')
+    res.json(users)
+  } catch (err) {
+    res.status(500)
+  }
+})
+
+router.post('/users', async (req, res) => {
+  const userData = req.body
+  console.log(req.body)
+  try {
+    const user = await knex('users').insert(userData, '*')
+    res.json(user)
+  } catch (err) {
+    res.status(userData ? 500 : 400)
+  }
+})
+
 module.exports = router
