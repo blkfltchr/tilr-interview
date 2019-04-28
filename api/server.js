@@ -4,7 +4,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session');
 const morgan = require('morgan')
-const routes = require('./routes')
 const cors = require('cors')
 const passport = require('passport');
 
@@ -24,9 +23,11 @@ app.use(passport.session())
 
 // Routes
 
+const authRoutes = require("./routes/authRoutes");
 const questionRoutes = require("./routes/questionRoutes");
 const userRoutes = require("./routes/userRoutes");
 
+app.use("/auth", authRoutes);
 app.use("/questions", questionRoutes);
 app.use("/users", userRoutes);
 
