@@ -11,6 +11,7 @@ const Questions = () => (
       <ul className='nav nav-pills questions__nav'>
         <li className='nav-item'><NavLink to='/questions' className='nav-link' exact>Questions</NavLink></li>
         <li className='nav-item'><NavLink to='/questions/create' className='nav-link'>Create</NavLink></li>
+        <li className='nav-item'><NavLink to='/login' className='nav-link'>Login</NavLink></li>
         <li className='nav-item'><NavLink to='/signup' className='nav-link'>Sign up</NavLink></li>
       </ul>
     </div>

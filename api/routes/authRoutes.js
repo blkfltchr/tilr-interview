@@ -11,13 +11,27 @@ router.post('/register', (req, res, next)  => {
   .then((response) => {
     passport.authenticate('local', (err, user, info) => {
       if (user) { 
-        res.status(200).json({msg: "Success: user created"}) 
+        res.status(200).json({ msg: "Signup success" }) 
       }
-    })(req, res, next);
+    })(req, res, next)
   })
   .catch((err) => { 
-    res.status(500).json({msg: err}) 
-  });
+    res.status(500).json({ msg: err }) 
+  })
+})
+
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) { res.status(500).json({ msg: err }) }
+    if (!user) { res.status(404).json({ msg: 'User not found' }) }
+    if (user) {
+      console.log(user)
+      req.login(user, function (err) {
+        if (err) { return next(err) }
+        res.status(200).json({ msg: "Login success" }) 
+      });
+    }
+  })(req, res, next)
 })
 
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { signupUser } from '../../actions/users'
+import { loginUser } from '../../actions/users'
 
-class Signup extends Component {
+class Login extends Component {
   constructor() {
     super()
     this.state = { 
@@ -12,18 +12,18 @@ class Signup extends Component {
     }
   }
 
-  signupUser(event) {
+  loginUser(event) {
     const { email, password } = this.state
     event.preventDefault()
-    this.props.signupUser(email, password)
+    this.props.loginUser(email, password)
   }
 
   render() {
     const { email, password } = this.state
 
     return (
-      <form onSubmit={event => this.signupUser(event)} className='question-form'>
-        <h3>Sign up</h3>
+      <form onSubmit={event => this.loginUser(event)} className='question-form'>
+        <h3>Log in</h3>
         <input
           className='form-control'
           onChange={({ target }) => this.setState({ email: target.value })}
@@ -42,16 +42,16 @@ class Signup extends Component {
           disabled={email === '' || password === ''}
           type='submit'
         >
-          Sign up
+          Log in
         </button>
-        <Link to="/login">Already have an account? Click here to log in.</Link>
+        <Link to="/signup">Don't have an account yet? Create an account here.</Link>
       </form>
     )
   }
 }
 
 const mapDispatchToProps = {
-  signupUser
+  loginUser
 }
 
-export default connect(null, mapDispatchToProps)(Signup)
+export default connect(null, mapDispatchToProps)(Login)

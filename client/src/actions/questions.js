@@ -15,7 +15,7 @@ export const createQuestion = text => async (dispatch) => {
   try {
     const { data } = await axios.post('/questions', { text })
     dispatch({ type: actionTypes.QUESTIONS_CREATE, payload: data })
-    dispatch(push('/'))
+    dispatch(push('/questions'))
   } catch (err) {
     console.log(err)
   }

@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import reducers from './reducers'
 import Questions from './components/Questions'
 import Signup from './components/Signup'
+import Login from './components/Login'
 import './App.css'
 
 const history = createBrowserHistory()
@@ -31,6 +32,7 @@ const App = () => (
         <Switch>
           <Route path='/questions' component={Questions} />
           <Route exact path='/signup' component={Signup} />
+          <Route exact path='/login' component={Login} />
         </Switch>
       </ConnectedRouter>
     </Provider>
