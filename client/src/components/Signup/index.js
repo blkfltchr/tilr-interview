@@ -24,27 +24,35 @@ class Signup extends Component {
     return (
       <form onSubmit={event => this.signupUser(event)} className='question-form'>
         <h3>Sign up</h3>
-        <input
-          className='form-control'
-          onChange={({ target }) => this.setState({ email: target.value })}
-          placeholder='Enter your email...'
-          value={email}
-        />
-        <input
-          className='form-control'
-          onChange={({ target }) => this.setState({ password: target.value })}
-          placeholder='Enter your password...'
-          value={password}
-          type='password'
-        />
-        <button
-          className='btn btn-primary'
-          disabled={email === '' || password === ''}
-          type='submit'
-        >
-          Sign up
-        </button>
-        <Link to="/login">Already have an account? Click here to log in.</Link>
+        <div class='form-group'>
+          <input
+            className='form-control'
+            onChange={({ target }) => this.setState({ email: target.value })}
+            placeholder='Enter your email...'
+            value={email}
+          />
+        </div>
+        <div class='form-group'>
+          <input
+            className='form-control'
+            onChange={({ target }) => this.setState({ password: target.value })}
+            placeholder='Enter your password...'
+            value={password}
+            type='password'
+          />
+        </div>
+        <div class='form-group'>
+          <button
+            className='btn btn-primary'
+            disabled={email === '' || password === ''}
+            type='submit'
+          >
+            Sign up
+          </button>
+        </div>
+        <div class='form-group'>
+          <Link to='/login'>Already have an account? Click here to log in.</Link>
+        </div>
       </form>
     )
   }

@@ -6,9 +6,11 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Route, Switch } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
-import Questions from './components/Questions'
+import QuestionList from './components/Questions/QuestionList'
+import QuestionForm from './components/Questions/QuestionForm'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import NavBar from './components/NavBar'
 import './App.css'
 
 const history = createBrowserHistory()
@@ -26,14 +28,18 @@ const store = createStore(
 )
 
 const App = () => (
-  <div className='app'>
+  <div>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Switch>
-          <Route path='/questions' component={Questions} />
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-        </Switch>
+        <NavBar />
+        <div className='container mt-3'>
+          <Switch>
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/questions' component={QuestionList} />
+            <Route exact path='/questions/create' component={QuestionForm} />
+          </Switch>
+        </div>
       </ConnectedRouter>
     </Provider>
   </div>
