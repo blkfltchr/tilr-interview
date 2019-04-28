@@ -9,7 +9,12 @@ const passport = require('passport');
 
 const app = express()
 app.use(morgan('combined'))
-app.use(cors())
+app.use(cors({
+  credentials: true,
+  origin: ["http://localhost:3000"],
+  AccessControlAllowOrigin: ["http://localhost:8000"],
+  AccessControlAllowHeaders: "Authorization"
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 

@@ -6,9 +6,8 @@ exports.up = function (knex) {
       .string('email')
       .unique()
       .notNullable()
-    table
-      .string('password')
-      .notNullable()
+    table.string('password')
+    table.string('token');
   })
 }
 

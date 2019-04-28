@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signupUser } from '../../actions/users'
-
+import '../Questions/style.css'
 class Signup extends Component {
   constructor() {
     super()
@@ -24,15 +24,15 @@ class Signup extends Component {
     return (
       <form onSubmit={event => this.signupUser(event)} className='question-form'>
         <h3>Sign up</h3>
-        <div class='form-group'>
-          <input
+        <div className='form-group'>
+          {/* <input
             className='form-control'
             onChange={({ target }) => this.setState({ email: target.value })}
             placeholder='Enter your email...'
             value={email}
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <input
             className='form-control'
             onChange={({ target }) => this.setState({ password: target.value })}
@@ -41,16 +41,21 @@ class Signup extends Component {
             type='password'
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <button
             className='btn btn-primary'
             disabled={email === '' || password === ''}
             type='submit'
           >
             Sign up
-          </button>
+          </button> */}
+          <a href='http://localhost:8000/auth/google'>
+            <button className="loginBtn loginBtn--google">
+              Log in with Google
+            </button>
+          </a>
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <Link to='/login'>Already have an account? Click here to log in.</Link>
         </div>
       </form>

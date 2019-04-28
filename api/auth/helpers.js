@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 const knex = require('knex')(require('../knexfile'))
+const jwt = require("jsonwebtoken");
+const secret = process.env.JWT_SECRET;
 
 function verifyPassword(userPassword, hash) {
   return bcrypt.compareSync(userPassword, hash)
@@ -16,7 +18,20 @@ function createUser(req) {
   .returning('*');
 }
 
+function generateToken(email) {
+  const payload = {
+    subject: email
+  };
+
+  const options = {
+    expiresIn: "1d"
+  };
+
+  return jwt.sign(payload, secret, options);
+}
+
 module.exports = {
     verifyPassword,
-    createUser
+    createUser,
+    generateToken
 };

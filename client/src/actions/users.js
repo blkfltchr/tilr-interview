@@ -17,11 +17,16 @@ export const signupUser = (email, password) => async (dispatch) => {
 
 export const loginUser = (email, password) => async (dispatch) => {
   try {
-    const { data } = await axios.post('/auth/login', { 
-        email, 
-        password
-     })
-    dispatch({ type: actionTypes.LOGIN_USER, payload: data })
+    const { payload } = await axios('/auth/login', 
+      {
+        method: "post",
+        data: {
+          email, 
+          password
+        },
+        withCredentials: true
+      })
+    dispatch({ type: actionTypes.LOGIN_USER, payload })
     dispatch(push('/questions'))
   } catch (err) {
     console.log(err)

@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const userData = req.body
-  console.log(req.body)
   try {
     const user = await knex('users').insert(userData, '*')
     res.json(user)
