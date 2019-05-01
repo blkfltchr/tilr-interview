@@ -11,7 +11,13 @@ router.post('/register', (req, res, next)  => {
   .then((response) => {
     passport.authenticate('local', (err, user, info) => {
       if (user) { 
-        res.status(200).json({ msg: 'Signup success' }) 
+        res
+          .status(200)
+          .cookie('user_id', user_id, {
+            httpOnly: true,
+            signed: true
+          })
+          .json({ msg: 'Signup success' }) 
       }
     })(req, res, next)
   })

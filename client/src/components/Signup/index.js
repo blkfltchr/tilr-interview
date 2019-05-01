@@ -22,10 +22,10 @@ class Signup extends Component {
     const { email, password } = this.state
 
     return (
-      <form onSubmit={event => this.signupUser(event)} className='question-form'>
+      <form onSubmit={event => this.signupUser(event)}>
         <h3>Sign up</h3>
         <div className='form-group'>
-          {/* <input
+          <input
             className='form-control'
             onChange={({ target }) => this.setState({ email: target.value })}
             placeholder='Enter your email...'
@@ -48,10 +48,12 @@ class Signup extends Component {
             type='submit'
           >
             Sign up
-          </button> */}
+          </button>
+        </div>
+        <div className='form-group'>
           <a href='http://localhost:8000/auth/google'>
             <button className="loginBtn loginBtn--google">
-              Log in with Google
+              Sign up with Google
             </button>
           </a>
         </div>
