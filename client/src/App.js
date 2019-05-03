@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Route, Switch } from 'react-router-dom'
-import queryString from "query-string";
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 import QuestionList from './components/Questions/QuestionList'
@@ -30,17 +29,7 @@ const store = createStore(
 
 class App extends Component {
 
-  componentWillMount() {
-    let query = queryString.parse(history.location.search);
-    if (query.token && query.userId) {
-      window.localStorage.setItem("jwt", query.token);
-      window.localStorage.setItem("userId", query.userId);
-      history.push("/questions");
-    }
-  }
-
   render() {
-    console.log(history)
     return (
       <div>
         <Provider store={store}>

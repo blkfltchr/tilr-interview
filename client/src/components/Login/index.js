@@ -51,13 +51,6 @@ class Login extends Component {
           </button>
         </div>
         <div className='form-group'>
-          <a href='http:localhost:8000/auth/google'>
-            <button className="loginBtn loginBtn--google">
-              Log in with Google
-            </button>
-          </a>
-        </div>
-        <div className='form-group'>
           <Link to='/signup'>Don't have an account yet? Create an account here.</Link>
         </div>
       </form>

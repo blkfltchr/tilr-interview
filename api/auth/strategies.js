@@ -40,14 +40,10 @@ passport.use(
         })
         .first()
       if (existingUser) {
-        let token = authHelpers.generateToken(existingUser.email)
-        existingUser.token = token
         done(null, existingUser)
       } else {
-        let token = authHelpers.generateToken(profile.emails[0].value)
         await knex('users').insert({
           email: profile.emails[0].value,
-          token
         })
         const user = await knex('users')
           .where({ email: profile.emails[0].value })

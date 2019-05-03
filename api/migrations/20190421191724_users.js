@@ -7,7 +7,6 @@ exports.up = function (knex) {
       .unique()
       .notNullable()
     table.string('password')
-    table.string('token');
   })
 }
 
