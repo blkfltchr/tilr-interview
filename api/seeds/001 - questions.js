@@ -1,7 +1,7 @@
 exports.seed = async (knex) => {
   await knex.batchInsert('questions', [
-    { text: 'Are the Leafs ever going to win the Stanley Cup again?' },
-    { text: 'Is pineapple an appropriate pizza topping?' },
-    { text: 'Is beer an appropriate breakfast drink?' }
+    { text: 'Can you tell me a little about yourself?' },
+    { text: 'What are you looking for in a new position?' },
+    { text: 'What would your first 30, 60, or 90 days look like in this role?' }
   ])
 }

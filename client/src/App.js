@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 import QuestionList from './components/Questions/QuestionList'
+import AnswerList from './components/Answers/AnswerList'
 import QuestionForm from './components/Questions/QuestionForm'
 import Signup from './components/Signup'
 import Login from './components/Login'
@@ -41,6 +42,7 @@ class App extends Component {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/questions' component={QuestionList} />
                 <Route exact path='/questions/create' component={QuestionForm} />
+                <Route exact path='/answers' component={AnswerList} />
               </Switch>
             </div>
           </ConnectedRouter>

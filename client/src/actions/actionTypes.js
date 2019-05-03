@@ -9,4 +9,5 @@ export default createTypes(
   'LOGIN_SUCCESS',
   'GETTING_SINGLE_USER',
   'GET_SINGLE_USER_SUCCESS',
+  'ANSWERS_FETCH_ALL'
 )
