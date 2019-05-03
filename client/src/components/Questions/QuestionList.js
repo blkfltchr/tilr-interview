@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchQuestions } from '../../actions/questions'
+import { getSingleUser } from '../../actions/users'
 
 class QuestionList extends Component {
   componentDidMount() {
     this.props.fetchQuestions()
+    this.props.getSingleUser()
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className='question-list'>
         <h3>Recently Added</h3>
@@ -26,13 +29,16 @@ class QuestionList extends Component {
     )
   }
 }
-
-const mapStateToProps = ({ questions }) => ({
-  questions: questions.all
+// ({ questions, users })
+const mapStateToProps = state => ({
+  questions: state.questions.all,
+  loadingUsers: state.users.singleUser,
+  singleUser: state.users.singleUser
 })
 
 const mapDispatchToProps = {
-  fetchQuestions
+  fetchQuestions,
+  getSingleUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionList)

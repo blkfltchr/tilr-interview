@@ -6,5 +6,7 @@ export default createTypes(
   'SIGNING_UP',
   'SIGNUP_SUCCESS',
   'LOGGING_IN',
-  'LOGIN_SUCCESS'
+  'LOGIN_SUCCESS',
+  'GETTING_SINGLE_USER',
+  'GET_SINGLE_USER_SUCCESS',
 )
